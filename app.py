@@ -10,9 +10,12 @@ from dropboxAPI import DropBoxAPI
 
 app = Flask(__name__)
 
-UPLOAD_DIR = 'static/image_upload/'
-CARTOON_DIR = 'static/cartoonize/'
-DROPBOX_TOKEN = 'XfH4_Pu0F6gAAAAAAAAAAQ-40jVLAMkRrnkX1BFgBUNdB5dsGQ6ntCQtquIGoIWQ'
+app.config.from_object('config.Config')
+
+UPLOAD_DIR = app.config['UPLOAD_DIR']
+CARTOON_DIR = app.config['CARTOON_DIR']
+DROPBOX_TOKEN = app.config['DROPBOX_TOKEN']
+
 def convert_bytes_to_image(img_bytes):
     
     pil_image = Image.open(io.BytesIO(img_bytes))
@@ -27,7 +30,7 @@ def convert_bytes_to_image(img_bytes):
     return image
 
 
-MODEL = WB_Cartoonize(os.path.abspath("model/saved_models/"), True)
+MODEL = WB_Cartoonize(os.path.abspath(app.config['SAVED_MODEL_PATH']), True)
 DRB = DropBoxAPI(DROPBOX_TOKEN)
 @app.route('/',methods=['GET', 'POST'])
 @app.route('/cartoonize',methods=['GET', 'POST'])
@@ -48,14 +51,9 @@ def home():
             result = DRB.upload(cartoon_link)
         return render_template('index.html',link = link,cartoon_link = result)
 
-@app.route('/download')
-def download():
-    if request.args.get('image'):
-        filename = request.args.get('image')
-        return send_file(filename,mimetype='image/gif')
-    return render_template('index.html')
+
 
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run(host=app.config['MAIN_IP'], port=8000, debug=True)
