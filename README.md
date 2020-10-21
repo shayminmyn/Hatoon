@@ -5,6 +5,7 @@
 
 **1. Introduce**
     Cartoon is a part of my childhoods. I alway feel interesting when see cartoon or read manga but I don't know how they can made it. Therefor, I use machine learning to create a model can cartoonazation even I don't good at drawing. 
+    
 **2. Concept**
 Using deep learning to transfer style of image to cartoon.
 
