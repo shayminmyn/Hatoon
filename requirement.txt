@@ -1,0 +1,13 @@
+python 3
+#lib
+os
+pathlib
+dropbox
+re
+flask
+PIL
+numpy
+io
+uuid
+tf_slim
+cv2

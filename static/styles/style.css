@@ -1,0 +1,112 @@
+.contaier {
+    position: relative;
+    height: 100%;
+    margin: 0;
+
+    position: relative;
+    background-image: url(../images/33.jpg);
+
+    /* Center and scale the image nicely */
+    background-position: center;
+}
+
+
+h1 {
+    position: absolute;
+    width: 245px;
+    height: 66px;
+    left: 42%;
+    top: 10px;
+
+    font-family: 'Sansita Swashed';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.rec1 {
+    position: absolute;
+    width: 35%;
+    height: 60%;
+    left: 10%;
+    top: 17%;
+
+    background: #C4C4C4;
+    /* mix-blend-mode: overlay; */
+
+    overflow: hidden;
+    margin: 0;
+}
+
+div.rec1 > img {
+    width:100%;
+    height:100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+.rec2 {
+    position: absolute;
+    width: 35%;
+    height: 60%;
+    left: 55%;
+    top: 17%;
+
+    background: #C4C4C4;
+    /* mix-blend-mode: overlay; */
+
+    overflow: hidden;
+    margin: 0;
+}
+div.rec2 > img {
+    width:100%;
+    height:100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+  }
+.buttons {
+    position: absolute;
+    width: 10%;
+    height: 40px;
+    left: 22.5%;
+    top: 79%;
+}
+
+#download {
+    position: absolute;
+    width: 14%;
+    height: 40px;
+    left: 65.5%;
+    top: 79%;
+}
+
+.custom-file{
+    position: absolute;
+    width: 20%;
+    height: 40px;
+    left: 17.5%;
+    top: 79%;
+}
+
+/* .loading {
+    position: absolute;
+    width: 121px;
+    height: 122px;
+    left: 668px;
+    top: 300px;
+    color: red;
+} */

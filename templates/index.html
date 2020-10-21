@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+
+    
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    
+    <style type="text/css">
+        .rec1 {
+            {%+ if not link %} mix-blend-mode: overlay;{% endif %}
+            
+        }
+        .rec2 {
+            /* {%+ if cartoon_link %} background-image: url({{cartoon_link}});{% endif %} */
+            {%+ if not cartoon_link %} mix-blend-mode: overlay;{% endif %}
+            
+        }
+        /* mix-blend-mode: overlay; */
+        </style>
+    <title>Hatoon</title>
+</head>
+<body>
+    <div id="loader" class="ui disabled dimmer">
+        <div class="ui text loader">Preparing your cartoon! May take an extra few seconds :)</div>
+      </div>
+
+    <div class="contaier">
+        <h1>Hatoon</h1>
+        <div class="main">
+            <div class="rec1">
+                {%+ if link %}  <img src="{{link}}" alt="">{% endif %}
+               
+            </div>
+            <form id='formsubmit' method="post" action="cartoonize" enctype = "multipart/form-data">
+    
+                <div class="ui buttons">
+                    <div id='uploadimage' class="ui button" style="align-items: center;">
+                        <i class="image icon"></i>
+                        Image
+                    </div>
+                </div>
+        
+                <input type='file' id='hiddeninputfile' accept="image/*" name = 'image' style="display: none"/>
+                <!-- <input id='submitbutton' class='ui button' type='submit'/> -->
+            </form>
+            
+            <div class="rec2">
+                {%+ if cartoon_link %}  <img src="{{cartoon_link}}" alt="">{% endif %}
+            </div>
+            {%+ if cartoon_link %}
+            <div id='download' class="ui button" style="align-items: center;">
+                <a id="download_link" href="{{cartoon_link}}"><i class="download icon"></i>Download</a>
+                
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+<script>
+    $('.ui.accordion')
+  .accordion()
+;
+    $("#uploadimage").on("click", function() {
+        $('#hiddeninputfile').click(); 
+    });
+    document.getElementById("hiddeninputfile").onchange = function() {
+        $('#loader').removeClass('disabled').addClass('active');
+        document.getElementById("formsubmit").submit();
+        
+    };
+    $('#download').on("click",function(){
+        $('#download_link').click();
+    })
+    var recorder = document.getElementById('recorder');
+</script>
+</body>
+</html>
