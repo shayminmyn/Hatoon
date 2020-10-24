@@ -4,7 +4,8 @@
     margin: 0;
 
     position: relative;
-    background-image: url(../images/33.jpg);
+    /* background-image: url(../images/33.jpg); */
+    background: linear-gradient(to right, #fcd997, #50b6ab);
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -34,7 +35,7 @@ h1 {
     height: 60%;
     left: 10%;
     top: 17%;
-
+    /* border-width: 3px; */
     background: #C4C4C4;
     /* mix-blend-mode: overlay; */
 
@@ -55,6 +56,7 @@ div.rec1 > img {
   }
 
 .rec2 {
+    /* border-width: 3px; */
     position: absolute;
     width: 35%;
     height: 60%;

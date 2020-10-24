@@ -30,7 +30,7 @@ def convert_bytes_to_image(img_bytes):
     return image
 
 
-MODEL = WB_Cartoonize(os.path.abspath(app.config['SAVED_MODEL_PATH']), True)
+MODEL = WB_Cartoonize(os.path.abspath(app.config['SAVED_MODEL_PATH']), app.config['GPU'])
 DRB = DropBoxAPI(DROPBOX_TOKEN)
 @app.route('/',methods=['GET', 'POST'])
 @app.route('/cartoonize',methods=['GET', 'POST'])

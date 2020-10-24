@@ -1,6 +1,5 @@
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
-import numpy as np
 
 def resblock(inputs, out_channel=32, name='resblock'):
     
@@ -13,8 +12,6 @@ def resblock(inputs, out_channel=32, name='resblock'):
                                activation_fn=None, scope='conv2')
         
         return x + inputs
-
-
 
 
 def unet_generator(inputs, channel=32, num_blocks=4, name='generator', reuse=False):
@@ -51,5 +48,5 @@ def unet_generator(inputs, channel=32, num_blocks=4, name='generator', reuse=Fal
         x4 = slim.convolution2d(x4+x0, channel, [3, 3], activation_fn=None)
         x4 = tf.nn.leaky_relu(x4)
         x4 = slim.convolution2d(x4, 3, [7, 7], activation_fn=None)
-        
+        #x4 = tf.clip_by_value(x4, -1, 1)
         return x4
